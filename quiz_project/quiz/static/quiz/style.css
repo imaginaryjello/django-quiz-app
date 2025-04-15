@@ -1,0 +1,21 @@
+.progress {
+    height: 30px;
+}
+
+.progress-bar {
+    font-size: 1rem;
+    line-height: 30px;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.list-group-item {
+    transition: all 0.3s;
+}
+
+.list-group-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

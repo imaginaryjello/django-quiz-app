@@ -1,0 +1,67 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Your Quiz History</h2>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3>Statistics</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-white bg-info mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Average Score</h5>
+                            <p class="card-text display-4">{{ stats.average|floatformat:1 }}/5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Highest Score</h5>
+                            <p class="card-text display-4">{{ stats.highest }}/5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Lowest Score</h5>
+                            <p class="card-text display-4">{{ stats.lowest }}/5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-muted">Total attempts: {{ stats.total_attempts }}</p>
+        </div>
+    </div>
+
+    <h3 class="mb-3">Recent Attempts</h3>
+    <div class="list-group">
+        {% for result in results %}
+        <div class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h5>{{ result.date_taken|date:"F j, Y H:i" }}</h5>
+                    <p class="mb-1">{{ result.feedback_message }}</p>
+                </div>
+                <span class="badge badge-{% if result.score >= 4 %}success{% elif result.score >= 3 %}info{% else %}warning{% endif %} badge-pill">
+                    {{ result.score }}/5
+                </span>
+            </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-info">
+            No quiz results yet. Take a quiz to see your results here!
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'quiz:quiz' %}" class="btn btn-primary btn-lg">Take New Quiz</a>
+    </div>
+</div>
+{% endblock %}

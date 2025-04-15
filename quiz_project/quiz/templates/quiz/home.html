@@ -1,0 +1,14 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-4">French Language Quiz</h1>
+    {% if user.is_authenticated %}
+        <a href="{% url 'quiz:quiz' %}" class="btn btn-primary btn-lg">Take Quiz</a>
+        <a href="{% url 'quiz:history' %}" class="btn btn-secondary btn-lg ms-3">View History</a>
+    {% else %}
+        <a href="{% url 'quiz:login' %}" class="btn btn-primary btn-lg">Login</a>
+        <a href="{% url 'quiz:signup' %}" class="btn btn-success btn-lg ms-3">Sign Up</a>
+    {% endif %}
+</div>
+{% endblock %}
