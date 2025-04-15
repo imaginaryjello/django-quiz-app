@@ -46,24 +46,8 @@ class LoginForm(AuthenticationForm):
 
 
 class QuizForm(forms.Form):
-    """
-    Dynamic form that generates radio button choices for quiz questions.
-
-    Args:
-        questions (QuerySet): Questions to display in the form.
-        *args: Variable length argument list.
-        **kwargs: Arbitrary keyword arguments.
-    """
-
     def __init__(self, questions, *args, **kwargs):
-        """
-        Initialize the form and create a radio select field for each question.
-
-        Args:
-            questions (Iterable[Question]): Questions to display.
-        """
         super().__init__(*args, **kwargs)
-
         for question in questions:
             choices = [
                 (1, question.option1),
@@ -71,21 +55,13 @@ class QuizForm(forms.Form):
                 (3, question.option3),
                 (4, question.option4),
             ]
-
             self.fields[f'question_{question.id}'] = forms.ChoiceField(
                 label=question.text,
                 choices=choices,
-                widget=forms.RadioSelect(attrs={'class': 'form-check-input'}),
-                required=True,
-                help_text="Select one correct answer."
+                widget=forms.RadioSelect(attrs={
+                    'class': 'radio-input'
+                })
             )
-
-            # Add CSS classes to each radio option
-            self.fields[f'question_{question.id}'].widget.attrs.update({
-                'class': 'form-check-input',
-                'required': 'required'
-            })
-
     def clean(self):
         """
         Validate that all questions have been answered.

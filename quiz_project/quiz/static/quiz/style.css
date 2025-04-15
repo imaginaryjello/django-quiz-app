@@ -1,21 +1,59 @@
-.progress {
-    height: 30px;
+/* Quiz Container */
+.quiz-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.progress-bar {
-    font-size: 1rem;
-    line-height: 30px;
+/* Questions */
+.question {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
 }
 
-.card-header {
-    font-weight: bold;
+.question:last-child {
+  border-bottom: none;
 }
 
-.list-group-item {
-    transition: all 0.3s;
+.question-text {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
 }
 
-.list-group-item:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* Options List */
+.options-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.radio-input {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #2980b9;
 }
