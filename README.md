@@ -1,4 +1,4 @@
-Author
+_Author
 
     Nishan Sapkota C0911047
     Protsan Karki C0918275
@@ -126,12 +126,37 @@ B. History & Statistics:
     Lowest score → Min('score')
 
 
-4. Setup and deployement :
+4. Setup and deployement :\
 
-    Since this code wont be for github and will be included with django library installed the prior installation process wont be necesary
-    1. Run Development Server
+A. Installation
+        1.Clone the repository
+
+        git clone <https://github.com/imaginaryjello/django-quiz-app.git> 
+        cd quiz_project
+
+2.install dependencies
+
+    pip install django
+
+3.Run migrations
+    
+    python manage.py migrate
+
+4. **Load Quiz Questions**
+
+
+    python manage.py load_questions
+
+5. Run Development Server 
         
-            python manage.py runserver
+
+    python manage.py runserver
+
+
+
+
+
+
 
 5Conclusion
     This Django quiz application provides:
