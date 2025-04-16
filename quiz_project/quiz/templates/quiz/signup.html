@@ -2,52 +2,52 @@
 {% load static %}
 
 {% block content %}
-<div class="auth-container">
-  <div class="auth-card">
-    <div class="auth-header">
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="w-100" style="max-width: 450px;">
+    <div class="border rounded-4 p-4 shadow-sm">
+      <h3 class="mb-3 text-center fw-semibold">Sign Up</h3>
+      <p class="text-muted text-center mb-4">Create your account and start learning French</p>
 
-      <h2>Create Your Account</h2>
-      <p class="text-muted">Join our French learning community</p>
-    </div>
+      <form method="post" novalidate>
+        {% csrf_token %}
 
-    <form method="post" class="auth-form">
-      {% csrf_token %}
+        <!-- Username -->
+        <div class="mb-3">
+          <label for="id_username" class="form-label">Username</label>
+          <input type="text" name="username" id="id_username" class="form-control border-1 rounded-2" placeholder="Choose a username" required>
+        </div>
 
-      <!-- Username Field -->
-      <div class="form-group">
-        <label for="id_username">Username</label>
-        <input type="text" name="username" id="id_username" class="form-control" placeholder="Choose a username" required>
-        <small class="form-text">Letters, digits and @/./+/-/_ only</small>
-      </div>
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="id_email" class="form-label">Email</label>
+          <input type="email" name="email" id="id_email" class="form-control border-1 rounded-2" placeholder="your@email.com" required>
+        </div>
 
-      <!-- Email Field -->
-      <div class="form-group">
-        <label for="id_email">Email</label>
-        <input type="email" name="email" id="id_email" class="form-control" placeholder="your@email.com" required>
-      </div>
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="id_password1" class="form-label">Password</label>
+          <input type="password" name="password1" id="id_password1" class="form-control border-1 rounded-2" placeholder="Create a password" required>
+        </div>
 
-      <!-- Password Fields -->
-      <div class="form-group">
-        <label for="id_password1">Password</label>
-        <input type="password" name="password1" id="id_password1" class="form-control" placeholder="Create a password" required>
-        <small class="form-text">At least 8 characters</small>
-      </div>
+        <!-- Confirm Password -->
+        <div class="mb-3">
+          <label for="id_password2" class="form-label">Confirm Password</label>
+          <input type="password" name="password2" id="id_password2" class="form-control border-1 rounded-2" placeholder="Repeat your password" required>
+        </div>
 
-      <div class="form-group">
-        <label for="id_password2">Confirm Password</label>
-        <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Repeat your password" required>
-      </div>
+        <!-- Submit -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-dark rounded-2">Create Account</button>
+        </div>
+      </form>
 
-      <button type="submit" class="btn btn-auth btn-block">
-        <i class="fas fa-user-plus mr-2"></i> Sign Up
-      </button>
-
-      <div class="auth-footer">
-        <p class="text-center">Already have an account?
-          <a href="{% url 'quiz:login' %}" class="auth-link">Log in here</a>
+      <!-- Login Link -->
+      <div class="text-center mt-4">
+        <p class="small text-muted">Already have an account?
+          <a href="{% url 'quiz:login' %}" class="text-decoration-none">Login</a>
         </p>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 {% endblock %}
