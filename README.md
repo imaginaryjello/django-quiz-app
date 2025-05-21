@@ -1,9 +1,5 @@
 _Author
-
-    Nishan Sapkota C0911047
-    Protsan Karki C0918275
-    Sugan Subedi C0918634
-    Apil Kumal
+    Nishan Sapkota
 
 Description: Django application for quiz \
 Date: 2025/04/15
